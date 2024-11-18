@@ -1,7 +1,7 @@
 # Proyecto 3. Transformando el Talento: Análisis de Datos para Retener y Potenciar Empleados en ABC Corporation.
 
 {% hint style="info" %}
-Recuerda que este proyecto es un ejercicio académico, ante la duda pregunta a tus profesores. 
+Recuerda que este proyecto es un ejercicio académico, ante la duda pregunta a tus profesores.
 {% endhint %}
 
 ## 1. Resumen.
@@ -10,91 +10,89 @@ En el entorno empresarial altamente competitivo de hoy en día, la toma de decis
 
 Con el objetivo de reducir la rotación de empleados y mejorar la satisfacción en el trabajo la empresa ABC Corporation, nos han contratado para desarrollar un proyecto de análisis de datos y experimentación A/B de gran alcance. Nuestra misión es identificar factores clave que influyen en la satisfacción en el trabajo y, en última instancia, en la retención de empleados.
 
-En este proyecto, presentaremos los resultados de nuestro análisis exploratorio de datos, diseñaremos un experimento A/B para probar hipótesis críticas y analizaremos los resultados para proporcionar a ABC Corporation información valiosa que informe sus decisiones estratégicas. 
-
+En este proyecto, presentaremos los resultados de nuestro análisis exploratorio de datos, diseñaremos un experimento A/B para probar hipótesis críticas y analizaremos los resultados para proporcionar a ABC Corporation información valiosa que informe sus decisiones estratégicas.
 
 **¿Quién es ABC Corporation?**
 
-ABC Corporation, fundada en 1980 en California, es una consultora tecnológica especializada en ofrecer soluciones de inteligencia artificial (IA) y aprendizaje automático (*machine learning*) a empresas de diversos sectores. Su enfoque principal radica en automatizar y optimizar procesos empresariales mediante tecnologías de vanguardia.
+ABC Corporation, fundada en 1980 en California, es una consultora tecnológica especializada en ofrecer soluciones de inteligencia artificial (IA) y aprendizaje automático (_machine learning_) a empresas de diversos sectores. Su enfoque principal radica en automatizar y optimizar procesos empresariales mediante tecnologías de vanguardia.
 
-La empresa se distingue por tener un equipo multidisciplinario que abarca expertos en UX/UI, marketing, analistas, científicos de datos y otros campos relevantes. Esta diversidad permite una sinergia única entre conocimientos técnicos especializados y perspectivas variadas, lo que les permite ofrecer soluciones personalizadas adaptadas a las necesidades individuales de cada cliente. 
+La empresa se distingue por tener un equipo multidisciplinario que abarca expertos en UX/UI, marketing, analistas, científicos de datos y otros campos relevantes. Esta diversidad permite una sinergia única entre conocimientos técnicos especializados y perspectivas variadas, lo que les permite ofrecer soluciones personalizadas adaptadas a las necesidades individuales de cada cliente.
 
-EL último proyecto donde ha estado implicado la empresa ha sido la optimización de procesos de selección de personal, para ello la empresa ha desarrollado una plataforma de selección inteligente, donde los empleados pueden analizar automáticamente los CV de las posibles candidatas, identificar sus habilidades clave para finalmente clasificar los candidatos según si idoneidad para determinados roles. Además, han creado un sistema de recomendación para sugerir a los reclutadores los mejores candidatos. 
+EL último proyecto donde ha estado implicado la empresa ha sido la optimización de procesos de selección de personal, para ello la empresa ha desarrollado una plataforma de selección inteligente, donde los empleados pueden analizar automáticamente los CV de las posibles candidatas, identificar sus habilidades clave para finalmente clasificar los candidatos según si idoneidad para determinados roles. Además, han creado un sistema de recomendación para sugerir a los reclutadores los mejores candidatos.
 
 **Fases del proyecto:**
 
-- **Fase 1: Análisis Exploratorio de Datos(EDA).**  
+- **Fase 1: Análisis Exploratorio de Datos(EDA).**
 
-    Antes de llevar a cabo el proyecto, el experimento A/B y plantear hipótesis, es crucial comprender mejor el conjunto de datos y sus características. Para ello deberás hacer un análisis exploratorio detallado del conjunto de datos para familiarizarte con ellos y entender que  información tenemos.
+  Antes de llevar a cabo el proyecto, el experimento A/B y plantear hipótesis, es crucial comprender mejor el conjunto de datos y sus características. Para ello deberás hacer un análisis exploratorio detallado del conjunto de datos para familiarizarte con ellos y entender que información tenemos.
 
-- **Fase 2: Transformación de los datos.**  
+- **Fase 2: Transformación de los datos.**
 
-    Esto puede incluir la limpieza de datos, la normalización, la conversión de tipos de datos y la aplicación de reglas empresariales específicas. Las transformaciones se realizarán mediante funciones de Python que se aplicarán a los datos extraídos. Algunas de las transformaciones que podrías hacer son: 
+  Esto puede incluir la limpieza de datos, la normalización, la conversión de tipos de datos y la aplicación de reglas empresariales específicas. Las transformaciones se realizarán mediante funciones de Python que se aplicarán a los datos extraídos. Algunas de las transformaciones que podrías hacer son:
 
-    - La columna `Gender` tiene valores de 0 y 1, los cuales son pocos intutitivos. Los podrías reemplazar por "Male" y "Female", o "M" y "F" por ejemplo. 
+  - La columna `Gender` tiene valores de 0 y 1, los cuales son pocos intutitivos. Los podrías reemplazar por "Male" y "Female", o "M" y "F" por ejemplo.
 
-    - Algunas columnas, como la columna `DailyRate` son columnas que incluyen valores numéricos decimales. Pero en el DataFrame aparece como columna de tipo string. Deberás hacer los cambios necesarios para convertirla en columna de tipo numérica. 
+  - Algunas columnas, como la columna `DailyRate` son columnas que incluyen valores numéricos decimales. Pero en el DataFrame aparece como columna de tipo string. Deberás hacer los cambios necesarios para convertirla en columna de tipo numérica.
 
-    - Evaluar si hay valores duplicados y analizar si tiene sentido eliminarlos o mantenerlos. 
+  - Evaluar si hay valores duplicados y analizar si tiene sentido eliminarlos o mantenerlos.
 
-    - Valores inconsistentes, por ejemplo en la columna `DistanceFromHome` tiene valores negativos. 
+  - Valores inconsistentes, por ejemplo en la columna `DistanceFromHome` tiene valores negativos.
 
-    - Errores tipográficos en algunos valores de las columnas categóricas. Por ejemplo, en la columna `MaritalStatus` en vez de "Married" en algunas filas aparece "Marreid". 
+  - Errores tipográficos en algunos valores de las columnas categóricas. Por ejemplo, en la columna `MaritalStatus` en vez de "Married" en algunas filas aparece "Marreid".
 
-    - Columnas redundantes, es decir, columnas que nos dan la misma información expresada de forma diferente. 
+  - Columnas redundantes, es decir, columnas que nos dan la misma información expresada de forma diferente.
 
-- **Fase 3: Diseño de BBDD e Insercción de los Datos (estructura).** 
+- **Fase 3: Diseño de BBDD e Insercción de los Datos (estructura).**
 
-    En esta fase tiene como objetivo la creación y la inserción de datos en una base de datos desde el punto de vista de su arquitectura o estructra, es decir, definir como seria su BBDD final. Los aspectos principales de esta fase del proyecto son: 
+  En esta fase tiene como objetivo la creación y la inserción de datos en una base de datos desde el punto de vista de su arquitectura o estructra, es decir, definir como seria su BBDD final. Los aspectos principales de esta fase del proyecto son:
 
-    1. **Diseño de la Estructura de la Base de Datos:** Deberás definir la estructura de la base de datos. Esto incluye identificar las tablas necesarias y sus relaciones, así como definir las claves primarias y foráneas.
+  1. **Diseño de la Estructura de la Base de Datos:** Deberás definir la estructura de la base de datos. Esto incluye identificar las tablas necesarias y sus relaciones, así como definir las claves primarias y foráneas.
 
-    2. **Creación de la Base de Datos:** Deberás crear la base de datos utilizando las herramientas aprendidas en el módulo 2. 
+  2. **Creación de la Base de Datos:** Deberás crear la base de datos utilizando las herramientas aprendidas en el módulo 2.
 
-    3. **Inserción de Datos Iniciales:** Deberás insertar los datos de los empleados de la empresa en la base de datos. 
-
+  3. **Inserción de Datos Iniciales:** Deberás insertar los datos de los empleados de la empresa en la base de datos.
 
 - **Fase 4: Problema de A/B Testing.**
 
-    El objetivo de esta fase es determinar si existe una relación entre el nivel de satisfacción en el trabajo y la rotación de empleados, y si es así, cuál es la magnitud de esa relación. Partiremos de la siguiente hipótesis, "Existe una relación entre el nivel de satisfacción en el trabajo y la rotación de empleados en la empresa. Se sospecha que los empleados con niveles de satisfacción más bajos tienen una mayor probabilidad de dejar la empresa". Para ello deberéis crear una columna nueva en base al nivel de satisfacción en el trabajo para crear dos grupos, las condiciones para crear los grupos son: 
+  El objetivo de esta fase es determinar si existe una relación entre el nivel de satisfacción en el trabajo y la rotación de empleados, y si es así, cuál es la magnitud de esa relación. Partiremos de la siguiente hipótesis, "Existe una relación entre el nivel de satisfacción en el trabajo y la rotación de empleados en la empresa. Se sospecha que los empleados con niveles de satisfacción más bajos tienen una mayor probabilidad de dejar la empresa". Para ello deberéis crear una columna nueva en base al nivel de satisfacción en el trabajo para crear dos grupos, las condiciones para crear los grupos son:
 
-    - **Grupo A (Control):** Empleados con un nivel de satisfacción en el trabajo igual o superior a 3 en una escala de 1 a 5.
+  - **Grupo A (Control):** Empleados con un nivel de satisfacción en el trabajo igual o superior a 3 en una escala de 1 a 5.
 
-    - **Grupo B (Variante):** Empleados con un nivel de satisfacción en el trabajo inferior a 3 en la misma escala.
+  - **Grupo B (Variante):** Empleados con un nivel de satisfacción en el trabajo inferior a 3 en la misma escala.
 
-    La **métrica principal** que debes usar es la tasa de rotación de empleados (`Attrition`) en cada grupo. Recordemos que,  en esta columna, "No" indica que el empleado no ha dejado la empresa (sin rotación), mientras que "Yes" indica que el empleado ha dejado la empresa (con rotación). 
+  La **métrica principal** que debes usar es la tasa de rotación de empleados (`Attrition`) en cada grupo. Recordemos que, en esta columna, "No" indica que el empleado no ha dejado la empresa (sin rotación), mientras que "Yes" indica que el empleado ha dejado la empresa (con rotación).
 
-    Por lo tanto, los pasos que deberás seguir en esta fase son: 
+  Por lo tanto, los pasos que deberás seguir en esta fase son:
 
-    1. Divide a los empleados en los grupos A y B según los criterios establecidos.
+  1. Divide a los empleados en los grupos A y B según los criterios establecidos.
 
-    2. Calcula la tasa de rotación (porcentaje de empleados que dejaron la empresa) en cada grupo.
+  2. Calcula la tasa de rotación (porcentaje de empleados que dejaron la empresa) en cada grupo.
 
-    3. Realiza un análisis estadístico para determinar si hay una diferencia significativa en la tasa de rotación entre los grupos A y B.
+  3. Realiza un análisis estadístico para determinar si hay una diferencia significativa en la tasa de rotación entre los grupos A y B.
 
-    4. Analiza los resultados.
+  4. Analiza los resultados.
 
-    5. Calcular la magnitud de esta relación utilizando estadísticas como la diferencia de medias por ejemplo.
+  5. Calcular la magnitud de esta relación utilizando estadísticas como la diferencia de medias por ejemplo.
 
-- **Fase 5: Creación de una ETL.**  
+- **Fase 5: Creación de una ETL.**
 
-    En esta fase del proyecto, deberás crear un archivo .py que llevará a cabo la extracción, transformación y carga (ETL) de datos. El objetivo de esta etapa es automatizar la inserción de datos en la base de datos relacional y garantizar que la información se actualice de manera consistente y también automatizar el proceso de transformación de la información antes de la insercción en la BBDD. Los pasos que deberás seguir en esta fase son:
+  En esta fase del proyecto, deberás crear un archivo .py que llevará a cabo la extracción, transformación y carga (ETL) de datos. El objetivo de esta etapa es automatizar la inserción de datos en la base de datos relacional y garantizar que la información se actualice de manera consistente y también automatizar el proceso de transformación de la información antes de la insercción en la BBDD. Los pasos que deberás seguir en esta fase son:
 
-    1. **Extracción de Datos:** En esta primera parte de la ETL, las alumnas desarrollarán una función para extraer datos desde las fuentes de datos previamente definidas. Estas fuentes pueden incluir hojas de cálculo, archivos CSV, bases de datos externas o cualquier otro formato de datos relevante. El objetivo es obtener datos frescos y relevantes que se cargarán en la base de datos.
+  1. **Extracción de Datos:** En esta primera parte de la ETL, las alumnas desarrollarán una función para extraer datos desde las fuentes de datos previamente definidas. Estas fuentes pueden incluir hojas de cálculo, archivos CSV, bases de datos externas o cualquier otro formato de datos relevante. El objetivo es obtener datos frescos y relevantes que se cargarán en la base de datos.
 
-    2. **Transformación de Datos:** Deberás desarrollar una función (o varias) para aplicar todas las transformaciones necesarias para garantizar la integridad y la calidad de los datos (estas transformaciones serán las mismas que en la fase 2).
+  2. **Transformación de Datos:** Deberás desarrollar una función (o varias) para aplicar todas las transformaciones necesarias para garantizar la integridad y la calidad de los datos (estas transformaciones serán las mismas que en la fase 2).
 
-    3. **Creación de la Base de Datos:** En esta etapa, crearás una función con el código para la creación de la BBDD diseñada en la fase 3.
+  3. **Creación de la Base de Datos:** En esta etapa, crearás una función con el código para la creación de la BBDD diseñada en la fase 3.
 
-    4. **Carga de Datos:** Después de la creación de las tablas, desarrollaras funciones que permitan la inserción de datos transformados en la base de datos. Esto garantizará que la base de datos esté siempre actualizada con la información más reciente.
+  4. **Carga de Datos:** Después de la creación de las tablas, desarrollaras funciones que permitan la inserción de datos transformados en la base de datos. Esto garantizará que la base de datos esté siempre actualizada con la información más reciente.
 
-    **NOTA** Todo este código deberá estar en funciones y en archivos `.py`.
+  **NOTA** Todo este código deberá estar en funciones y en archivos `.py`.
 
 - **Fase 6: Reporte de los resultados.**
 
-    El objetivo de esta fase será proporcionar a ABC Corporation un informe detallado del contexto general de la empresa utilizando visualizaciones en Python. Este informe permitirá una comprensión más profunda de la situación actual y servirá como base para la toma de decisiones informadas.
+  El objetivo de esta fase será proporcionar a ABC Corporation un informe detallado del contexto general de la empresa utilizando visualizaciones en Python. Este informe permitirá una comprensión más profunda de la situación actual y servirá como base para la toma de decisiones informadas.
 
-    Deberás generar un informe completo que incluirá las visualizaciones junto con análisis descriptivos (se presentará el día de la demo). Las visualizaciones ayudarán a resaltar tendencias, áreas de mejora y fortalezas dentro de la empresa.
+  Deberás generar un informe completo que incluirá las visualizaciones junto con análisis descriptivos (se presentará el día de la demo). Las visualizaciones ayudarán a resaltar tendencias, áreas de mejora y fortalezas dentro de la empresa.
 
 ## 2. Los Datos.
 
@@ -120,9 +118,9 @@ Las columnas que os encontraréis en el DataFrame son:
 
 10. `EmployeeNumber`: Un número de identificación único para el empleado.
 
-11. `EnvironmentSatisfaction`: Nivel de satisfacción del empleado en relación con su entorno de trabajo. Con valores que estan comprendidos entre el 1 y el 4, siendo el 4 el nivel de máxima satisfacción. 
+11. `EnvironmentSatisfaction`: Nivel de satisfacción del empleado en relación con su entorno de trabajo. Con valores que estan comprendidos entre el 1 y el 4, siendo el 4 el nivel de máxima satisfacción.
 
-12. `Gender`: El género del empleado. Donde 0 corresponde con "hombre" y 1 con "mujer". 
+12. `Gender`: El género del empleado. Donde 0 corresponde con "hombre" y 1 con "mujer".
 
 13. `HourlyRate`: La tarifa por hora del empleado.
 
@@ -164,13 +162,13 @@ Las columnas que os encontraréis en el DataFrame son:
 
 32. `YearsAtCompany`: Años que el empleado ha trabajado en la empresa actual.
 
-33. `YearsInCurrentRole`: Años que el empleado ha estado en su puesto actual.
+33. `YearsInCurrentRole`: Años que el empleado ha estado en su puesto actual (en esa empresa)
 
 34. `YearsSinceLastPromotion`: Años desde la última promoción del empleado.
 
 35. `YearsWithCurrManager`: Años que el empleado ha estado bajo la supervisión del actual gerente.
 
-36. `SameAsMonthlyIncome`:  Ingresos mensuales del empleado.
+36. `SameAsMonthlyIncome`: Ingresos mensuales del empleado.
 
 37. `DateBirth`: Año de nacimiento del empleado (teniendo en cuenta que los datos fueron recogidos en el 2023)
 
@@ -182,31 +180,27 @@ Las columnas que os encontraréis en el DataFrame son:
 
 41. `RemoteWork`: Si el empleado puede teletrabajar o no.
 
-
-
-
 ## 3. Objetivos
 
 1. Consolidar los conocimientos de Python y SQL.
 
 2. Utilizar control de versiones en equipo para aprender las ventajas y conflictos que genera.
 
-3. Implementar Scrum como marco de referencia para el desarrollo del producto, basándonos siempre en los valores de *Agile* como puntos clave del trabajo en equipo y la mejora continua.
+3. Implementar Scrum como marco de referencia para el desarrollo del producto, basándonos siempre en los valores de _Agile_ como puntos clave del trabajo en equipo y la mejora continua.
 
 4. Mejorar la comunicación entre los miembros del equipo.
 
 5. Mejorar vuestras habilidades de comunicación en público al exponer el proyecto en la sesión final.
 
-
 ## 4. Planificación del proyecto.
 
-### 4.1. *sprints*
+### 4.1. _sprints_
 
-Para la realización de este proyecto trabajaremos en 2 *sprints* (2 iteraciones). Siguiendo los principios ágiles, estableceremos pequeños ciclos iterativos de forma que al final de cada uno generemos valor perceptible por nuestros usuarios. Dedicaremos el primer día a la planificación del *sprint* (*sprint planning*) y el resto a trabajar en el desarrollo del proyecto. Al final de cada *sprint* haremos un *Sprint Review* del proyecto para presentar los resultados conseguidos y recoger *feedback*.
+Para la realización de este proyecto trabajaremos en 2 _sprints_ (2 iteraciones). Siguiendo los principios ágiles, estableceremos pequeños ciclos iterativos de forma que al final de cada uno generemos valor perceptible por nuestros usuarios. Dedicaremos el primer día a la planificación del _sprint_ (_sprint planning_) y el resto a trabajar en el desarrollo del proyecto. Al final de cada _sprint_ haremos un _Sprint Review_ del proyecto para presentar los resultados conseguidos y recoger _feedback_.
 
-También haremos una retro corta revisando los *working agreements* que hemos acordado al inicio del proyecto y añadiendo cualquier otro *feedback* que nos permita mejorar el proyecto.
+También haremos una retro corta revisando los _working agreements_ que hemos acordado al inicio del proyecto y añadiendo cualquier otro _feedback_ que nos permita mejorar el proyecto.
 
-Al final del  segundo **sprint** (que coincidirá con el final del proyecto y del módulo), haremos una sesión de presentación más completa, más allá de lo que sería un *Sprint Review*.
+Al final del segundo **sprint** (que coincidirá con el final del proyecto y del módulo), haremos una sesión de presentación más completa, más allá de lo que sería un _Sprint Review_.
 
 ### 4.2. Criterios de aceptación.
 
@@ -216,7 +210,7 @@ Al final del  segundo **sprint** (que coincidirá con el final del proyecto y de
 
 - Tener la extracción de datos, creación de la Base de Datos e insercción de datos automatizada en funciones(obligatorio) y clases(optativo).
 
-- Tener en el repositorio de GitHub todo el código del desarrollo del proyecto. 
+- Tener en el repositorio de GitHub todo el código del desarrollo del proyecto.
 
 ### 4.3. Historias de usuario.
 
@@ -250,21 +244,21 @@ Por ejemplo:
 
 - project-da-promo-H-modulo-3-team-3
 
-En lo relacionado en las fechas de los *sprints* pueden verlo en vuestros calendarios
+En lo relacionado en las fechas de los _sprints_ pueden verlo en vuestros calendarios
 
-En las *sprint review* se revisará que se hayan solucionado todas las tareas técnicas asociadas a la entrega de esos *sprints*, si algo quedara pendiente se arrastraría al siguiente *sprint*.
+En las _sprint review_ se revisará que se hayan solucionado todas las tareas técnicas asociadas a la entrega de esos _sprints_, si algo quedara pendiente se arrastraría al siguiente _sprint_.
 
 ## 6. Presentación.
 
-El último día del módulo presentaréis la versión final de este proyecto a vuestras compañeras y al equipo de Adalab. Cada equipo realizará una presentación de 10 minutos y posteriormente habrá 5 minutos de *feedback* por parte del público. En este caso, la audiencia podría ser más variada pues no sólo estarán los profesores.
+El último día del módulo presentaréis la versión final de este proyecto a vuestras compañeras y al equipo de Adalab. Cada equipo realizará una presentación de 10 minutos y posteriormente habrá 5 minutos de _feedback_ por parte del público. En este caso, la audiencia podría ser más variada pues no sólo estarán los profesores.
 
 El objetivo es que practiquéis la realización de las demos de los proyectos que habéis desarrollado, explicándolo desde un punto de vista técnico y también desde la perspectiva de producto, mejorando además vuestras habilidades de exposición, objetivo de desarrollo profesional del curso.
 
-Para que la presentación salga bien es imprescindible una buena preparación. Por ello, durante el primer *sprint* del módulo tendréis que asignar responsabilidades dentro del equipo relacionadas con la preparación de ésta. Algunos tips para preparaos este demo son:
+Para que la presentación salga bien es imprescindible una buena preparación. Por ello, durante el primer _sprint_ del módulo tendréis que asignar responsabilidades dentro del equipo relacionadas con la preparación de ésta. Algunos tips para preparaos este demo son:
 
 - Todas las participantes del equipo deben hablar en la presentación (sin práctica no hay mejora).
 
-- Identificar los objetivos de la presentación: Debemos tener claro qué es lo que queremos lograr con la presentación. ¿Queremos demostrar la funcionalidad de un producto?  ¿Queremos mostrar los resultados de un experimento?  ¿Queremos atraer inversores? Dependiendo del objetivo, deberemos enfocar la presentación de manera distinta.
+- Identificar los objetivos de la presentación: Debemos tener claro qué es lo que queremos lograr con la presentación. ¿Queremos demostrar la funcionalidad de un producto? ¿Queremos mostrar los resultados de un experimento? ¿Queremos atraer inversores? Dependiendo del objetivo, deberemos enfocar la presentación de manera distinta.
 
 - Conoce a tu audiencia: La presentación debe estar adaptada al tipo de audiencia que se espera. Si se presentara ante posibles inversores, la presentación debe estar enfocada en los beneficios y la rentabilidad del producto. Si es una presentación para usuarios, deberá enfocarse en la usabilidad y la facilidad de uso.
 
