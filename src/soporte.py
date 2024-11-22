@@ -24,7 +24,6 @@ pd.set_option('display.max_columns', None) # para poder visualizar todas las col
 from datetime import datetime
 
 # función limpieza de datos:
-
 def limpieza(df):
     """ 
     Limpia un DataFrame eliminando duplicados y normalizando el texto. 
@@ -38,6 +37,7 @@ def limpieza(df):
         df[columna] = df[columna].str.lower().strip()
     return df
 
+#Función para cambiar el tipo de dato a float:
 def cambiar_tipo_dato(col):
     """
     Convierte los valores de una columna de tipo objeto a tipo float.
@@ -66,7 +66,7 @@ def cambiar_tipo_dato(col):
     except:
         print('Ha ocurrido un error')
 
-
+#Función para actualizar la columna 'age'
 def actualizar_edad(datebirth):
     """ 
     Calcula la edad de una persona basada en su año de nacimiento. 
@@ -79,3 +79,24 @@ def actualizar_edad(datebirth):
     año_actual = datetime.now().year
     edad = año_actual - int(datebirth) # datebirth tiene solo el año de nacimiento
     return edad
+
+#Función para actualizar los valores nulos de 'monthlyincome' y 'salary'
+def actualizar_nulos(df):
+    """ 
+    Actualiza valores nulos en las columnas 'monthlyincome' y 'salary' en un DataFrame. 
+    - Reemplaza los valores nulos en 'monthlyincome' con el resultado de dividir 'salary' entre 12. 
+    - Reemplaza los valores nulos en 'salary' con el resultado de multiplicar 'monthlyincome' por 12. 
+    Parámetros: df (pd.DataFrame): El DataFrame que contiene las columnas 'monthlyincome' y 'salary'. 
+    Retorna: pd.DataFrame: El DataFrame con los valores nulos actualizados. 
+    """
+    # Reemplazar valores nulos en 'monthlyincome' con el valor de 'salary' / 12
+    df['monthlyincome'] = df.apply(
+        lambda row: np.round((row['salary'] / 12), 2) if pd.isna(row['monthlyincome']) else row['monthlyincome'], axis=1
+    )
+    
+    # Reemplazar valores nulos en 'salary' con el valor de 'monthlyincome' * 12
+    df['salary'] = df.apply(
+        lambda row: np.round((row['monthlyincome'] * 12), 2) if pd.isna(row['salary']) else row['salary'], axis=1
+    )
+    
+    return df
