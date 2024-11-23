@@ -22,7 +22,7 @@ pd.set_option('display.max_columns', None) # para poder visualizar todas las col
 
 #-------------------------------------
 from datetime import datetime
-
+#%%
 # función limpieza de datos:
 def limpieza(df):
     """ 
@@ -33,12 +33,15 @@ def limpieza(df):
     Retorna: pd.DataFrame: El DataFrame limpio. 
     """
     df.drop_duplicates(inplace=True)
-    for columna in df:
-        df[columna] = df[columna].str.lower().strip()
+    df = df.map(lambda x: x.str.lower().str.strip() if isinstance(x, str) else x) # PDT: da error -> .str no atributte .str
+    #for columna in df:
+        #df[columna] = df[columna].str.lower().strip()
+        #if df.map(lambda x: isinstance(x, str)):
+            #df[columna].str.strip()
     return df
-
+#%%
 #Función para cambiar el tipo de dato a float:
-def cambiar_tipo_dato(col):
+def cambiar_tipo_dato(col):  # PDT: corregir función -> no cambia tipo dato
     """
     Convierte los valores de una columna de tipo objeto a tipo float.
 
