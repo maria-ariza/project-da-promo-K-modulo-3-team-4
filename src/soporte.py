@@ -16,13 +16,18 @@ from sklearn.impute import KNNImputer
 # -----------------------------------------------------------------------
 import seaborn as sns
 import matplotlib.pyplot as plt
+
 # Configuración
 # -----------------------------------------------------------------------
-pd.set_option('display.max_columns', None) # para poder visualizar todas las columnas de los DataFrames
+pd.set_option(
+    "display.max_columns", None
+)  # para poder visualizar todas las columnas de los DataFrames
 
-#-------------------------------------
+# -------------------------------------
 from datetime import datetime
-#%%
+
+
+# %%
 # función limpieza de datos:
 def limpieza(df):
     """
@@ -32,12 +37,14 @@ def limpieza(df):
     """
     # Eliminar duplicados
     df.drop_duplicates(inplace=True)
-    columnas_obj = df.select_dtypes(include='O').columns
+    columnas_obj = df.select_dtypes(include="O").columns
     for columna in columnas_obj:
         df[columna] = df[columna].str.lower().str.strip()
     return df
-#%%
-#Función para cambiar el tipo de dato a float:
+
+
+# %%
+# Función para cambiar el tipo de dato a float:
 def cambiar_tipo_dato(col):
     """
     Convierte los valores de una columna de tipo objeto a tipo float.
@@ -55,48 +62,66 @@ def cambiar_tipo_dato(col):
     Notas:
         Si ocurre un error durante la conversión, imprime un mensaje indicando el error.
     """
-    try: 
-        #print('Entro en try')
+    try:
+        # print('Entro en try')
         if pd.isna(col):  # Verificar si el valor es NaN
             return np.nan
         else:  # Es necesario pq sino devuelve todo nulos (sólo en los valores tipo float, no sé pq)
-            col = col.replace(",", ".").replace('$', '')  # Reemplazar la coma por punto y eliminar '$' 
-            #print(f'Primer replace: {col}')
+            col = col.replace(",", ".").replace(
+                "$", ""
+            )  # Reemplazar la coma por punto y eliminar '$'
+            # print(f'Primer replace: {col}')
             return float(col)
     except:
-        print('Ha ocurrido un error')
+        print("Ha ocurrido un error")
 
-#Función para actualizar la columna 'age'
+
+# Función para actualizar la columna 'age'
 def actualizar_edad(datebirth):
-    """ 
-    Calcula la edad de una persona basada en su año de nacimiento. 
-    Parámetros: datebirth (int o str): El año de nacimiento de la persona. 
-    Retorna: int: La edad calculada como la diferencia entre el año actual y el año de nacimiento. 
-    Notas: 
-    - El parámetro `datebirth` debe contener únicamente el año de nacimiento. 
-    - Se utiliza el año actual del sistema para realizar el cálculo. 
+    """
+    Calcula la edad de una persona basada en su año de nacimiento.
+    Parámetros: datebirth (int o str): El año de nacimiento de la persona.
+    Retorna: int: La edad calculada como la diferencia entre el año actual y el año de nacimiento.
+    Notas:
+    - El parámetro `datebirth` debe contener únicamente el año de nacimiento.
+    - Se utiliza el año actual del sistema para realizar el cálculo.
     """
     año_actual = datetime.now().year
-    edad = año_actual - int(datebirth) # datebirth tiene solo el año de nacimiento
+    edad = año_actual - int(datebirth)  # datebirth tiene solo el año de nacimiento
     return edad
 
-#Función para actualizar los valores nulos de 'monthlyincome' y 'salary'
+
+# Función para actualizar los valores nulos de 'monthlyincome' y 'salary'
 def actualizar_nulos(df):
-    """ 
-    Actualiza valores nulos en las columnas 'monthlyincome' y 'salary' en un DataFrame. 
-    - Reemplaza los valores nulos en 'monthlyincome' con el resultado de dividir 'salary' entre 12. 
-    - Reemplaza los valores nulos en 'salary' con el resultado de multiplicar 'monthlyincome' por 12. 
-    Parámetros: df (pd.DataFrame): El DataFrame que contiene las columnas 'monthlyincome' y 'salary'. 
-    Retorna: pd.DataFrame: El DataFrame con los valores nulos actualizados. 
+    """
+    Actualiza valores nulos en las columnas 'monthlyincome' y 'salary' en un DataFrame.
+    - Reemplaza los valores nulos en 'monthlyincome' con el resultado de dividir 'salary' entre 12.
+    - Reemplaza los valores nulos en 'salary' con el resultado de multiplicar 'monthlyincome' por 12.
+    Parámetros: df (pd.DataFrame): El DataFrame que contiene las columnas 'monthlyincome' y 'salary'.
+    Retorna: pd.DataFrame: El DataFrame con los valores nulos actualizados.
     """
     # Reemplazar valores nulos en 'monthlyincome' con el valor de 'salary' / 12
-    df['monthlyincome'] = df.apply(
-        lambda row: np.round((row['salary'] / 12), 2) if pd.isna(row['monthlyincome']) else row['monthlyincome'], axis=1
+    df["monthlyincome"] = df.apply(
+        lambda row: (
+            np.round((row["salary"] / 12), 2)
+            if pd.isna(row["monthlyincome"])
+            else row["monthlyincome"]
+        ),
+        axis=1,
     )
-    
+
     # Reemplazar valores nulos en 'salary' con el valor de 'monthlyincome' * 12
-    df['salary'] = df.apply(
-        lambda row: np.round((row['monthlyincome'] * 12), 2) if pd.isna(row['salary']) else row['salary'], axis=1
+    df["salary"] = df.apply(
+        lambda row: (
+            np.round((row["monthlyincome"] * 12), 2)
+            if pd.isna(row["salary"])
+            else row["salary"]
+        ),
+        axis=1,
     )
-    
+
+    # Creamos un csv con los cambios aplicados al df
+
+    df.to_csv("archivos/ABCcorporation2024.csv")
+
     return df
