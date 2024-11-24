@@ -25,23 +25,20 @@ from datetime import datetime
 #%%
 # función limpieza de datos:
 def limpieza(df):
-    """ 
-    Limpia un DataFrame eliminando duplicados y normalizando el texto. 
-    - Elimina filas duplicadas en el DataFrame. 
-    - Convierte todos los valores de las columnas a minúsculas y elimina espacios en blanco al inicio y al final. 
-    Parámetros: df (pd.DataFrame): El DataFrame a limpiar. 
-    Retorna: pd.DataFrame: El DataFrame limpio. 
     """
+    Limpia un DataFrame eliminando duplicados y normalizando el texto.
+    - Elimina filas duplicadas en el DataFrame.
+    - Convierte todos los valores de las columnas a minúsculas y elimina espacios en blanco al inicio y al final.
+    """
+    # Eliminar duplicados
     df.drop_duplicates(inplace=True)
-    df = df.map(lambda x: x.str.lower().str.strip() if isinstance(x, str) else x) # PDT: da error -> .str no atributte .str
-    #for columna in df:
-        #df[columna] = df[columna].str.lower().strip()
-        #if df.map(lambda x: isinstance(x, str)):
-            #df[columna].str.strip()
+    columnas_obj = df.select_dtypes(include='O').columns
+    for columna in columnas_obj:
+        df[columna] = df[columna].str.lower().str.strip()
     return df
 #%%
 #Función para cambiar el tipo de dato a float:
-def cambiar_tipo_dato(col):  # PDT: corregir función -> no cambia tipo dato
+def cambiar_tipo_dato(col):
     """
     Convierte los valores de una columna de tipo objeto a tipo float.
 
@@ -59,12 +56,12 @@ def cambiar_tipo_dato(col):  # PDT: corregir función -> no cambia tipo dato
         Si ocurre un error durante la conversión, imprime un mensaje indicando el error.
     """
     try: 
-        print('Entro en try')
+        #print('Entro en try')
         if pd.isna(col):  # Verificar si el valor es NaN
             return np.nan
         else:  # Es necesario pq sino devuelve todo nulos (sólo en los valores tipo float, no sé pq)
             col = col.replace(",", ".").replace('$', '')  # Reemplazar la coma por punto y eliminar '$' 
-            print(f'Primer replace: {col}')
+            #print(f'Primer replace: {col}')
             return float(col)
     except:
         print('Ha ocurrido un error')
