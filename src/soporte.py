@@ -94,7 +94,7 @@ def actualizar_edad(datebirth):
 # Función para actualizar los valores nulos de 'monthlyincome' y 'salary'
 def actualizar_nulos(df):
     """
-    Actualiza valores nulos en las columnas 'monthlyincome' y 'salary' en un DataFrame.
+    Actualiza valores nulos en las columnas 'monthlyincome' y 'salary' en un DataFrame y guarda el csv resultante.
     - Reemplaza los valores nulos en 'monthlyincome' con el resultado de dividir 'salary' entre 12.
     - Reemplaza los valores nulos en 'salary' con el resultado de multiplicar 'monthlyincome' por 12.
     Parámetros: df (pd.DataFrame): El DataFrame que contiene las columnas 'monthlyincome' y 'salary'.

@@ -4,6 +4,7 @@ from src import variables as va
 
 df = sp.pd.read_csv("archivos/hr_raw_data_final.csv", index_col=[0])
 
+# -------------------------------------------------------------- EDA ✨ ----------------------------------------------------
 # limpiamos dataframe (duplicados, lower y strip)
 sp.limpieza(df)
 print(
@@ -87,6 +88,7 @@ print(
 print("---" * 20)
 
 # Actualizamos los nulos de las columnas 'monthlyincome' y 'salary'
+# Esta funcion genera tambien un csv con el df final
 sp.actualizar_nulos(df)
 
 print("11. Columnas 'monthlyincome' y 'salary' actualizadas: valores nulos corregidos.")
@@ -95,3 +97,6 @@ print(
 )
 print(f"Valores nulos en 'salary' después del cambio: {df['salary'].isna().sum()}")
 print("CSV generado correctamente")
+
+
+# -------------------------------------------------------------- HIPOTESIS ✨ ----------------------------------------------------
