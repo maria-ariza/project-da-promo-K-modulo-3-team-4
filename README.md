@@ -1,4 +1,4 @@
-# ** Análisis de Retención de Talento en ABC Corporation** 🌌
+#  Análisis de Retención de Talento en ABC Corporation 🌌
 
 ## **Descripción del Proyecto** 📊
 El objetivo principal de este proyecto es proporcionar a **ABC Corporation** una visión detallada sobre la retención de talento y la satisfacción laboral en la organización. A través del análisis exhaustivo de los datos proporcionados, buscamos identificar patrones clave que afectan la rotación de empleados y proponer estrategias informadas para mejorar el ambiente laboral y reducir la fuga de talento.
