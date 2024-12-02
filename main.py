@@ -100,3 +100,21 @@ print("CSV generado correctamente")
 
 
 # -------------------------------------------------------------- HIPOTESIS ✨ ----------------------------------------------------
+
+#Dividimos en dos grupos:
+
+#  - Grupo A (Control): Empleados con un nivel de satisfacción en el trabajo igual o superior a 3 en una escala de 1 a 5.
+#  - Grupo B (Variante): Empleados con un nivel de satisfacción en el trabajo inferior a 3 en la misma escala.
+
+df['Satisfaccion'] = df['jobsatisfaction'].apply(lambda x: 'Satisfecho' if x >= 3 else 'Insatisfecho')
+
+#Creamos la tabla de contingencias:
+
+tabla_contingencia = sp.pd.crosstab(df['Satisfaccion'], df['attrition'], normalize=True) * 100
+
+_, p_value, _, _, = sp.chi2_contingency(tabla_contingencia) #Prueba Chi Cuadrado
+
+if p_value < 0.05:
+    print('No existe una relacion significativa entre la satisfaccion y la rotacion')
+else:
+    print('Existe una relacion significativa entre la satisfaccion y la rotacion')
